@@ -227,4 +227,16 @@ client.on('messageCreate', async (message) => {
   await message.channel.send({ embeds: [embed], components: [row] });
 });
 
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('<h1>Bot aktif</h1>');
+});
+
+app.listen(PORT, () => {
+  console.log(`🌐 Web sunucu çalışıyor, port: ${PORT}`);
+});
+
 client.login(process.env.TOKEN);
